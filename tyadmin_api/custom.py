@@ -11,6 +11,7 @@ from rest_framework import viewsets, mixins, status
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.generics import GenericAPIView, get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.settings import api_settings
 from rest_framework.viewsets import ViewSetMixin
@@ -69,6 +70,7 @@ class MtyCustomExecView(APIView):
 class XadminViewSet(MtyModelViewSet):
     pagination_class = CustomPageNumberPagination
     authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+    permission_classes = (IsAuthenticated,)
     filter_backends = (DjangoFilterBackend, SearchFilter)
 
     def get_exception_handler(self):

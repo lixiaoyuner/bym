@@ -48,9 +48,12 @@ INSTALLED_APPS = [
     'captcha',
     'tyadmin_api_cli',
 
+    'rest_framework',
+    'django_filters',
+
     'user',
     'tyadmin_api',
-    'rest_framework',
+
 ]
 
 TY_ADMIN_CONFIG = {
